@@ -1,18 +1,20 @@
 <template>
   <div id="app">
     <i class="material-icons">face</i>
+    <i class="material-icons">home</i>
     <div id="nav">
       <router-link :to="{name:'Home'}">Home</router-link> |
       <router-link :to="{name: 'About'}">About</router-link>
     </div>
-    <router-view/>   
+    <router-view/>
     <router-view name="email"/>
     <router-view name="tel"/>
   </div>
 </template>
 
 <style>
-#app {
+  @import "./assets/styles/index.css";
+  #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

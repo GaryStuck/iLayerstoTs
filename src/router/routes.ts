@@ -10,11 +10,20 @@ export default [
     path: '/about',
     name: 'About',
     component: () => import('@/views/About.vue'),
+    props: {
+      about: 'www'
+    }
+  },
+  {
+    path: '/store',
+    name: 'store',
+    component: () => import('@/views/store.vue'),
   },
   {
     path: '/argu/:name',
     name: 'argu',
     component: () => import('@/views/argu.vue'),
+    props: true
   },
   {
     path: '/parent',
@@ -39,8 +48,12 @@ export default [
     name: 'login',
     component: () => import('@/views/login.vue'),
   },
-  { 
+  {
     path: '/main',
-    redirect: () => '/login'
+    redirect: () => '/'
   },
+  {
+    path: '*',
+    component: () => import('@/views/error/404.vue')
+  }
 ];

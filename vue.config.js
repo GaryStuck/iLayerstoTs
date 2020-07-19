@@ -28,7 +28,7 @@ module.exports = {
       errors: false
     },
     proxy: {
-      '/': {
+      '/layer': {
         // 目标 API 地址
         target: 'http://localhost:3000',
         // target: process.env.VUE_APP_URL,
