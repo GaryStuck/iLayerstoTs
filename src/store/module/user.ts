@@ -23,11 +23,11 @@ const mutations: MutationTree<UserState> = {
 const actions: ActionTree<UserState, RootState> = {
   setNickName({commit, state}, params) {
     if (state.nickName !== 'admin') {
-      commit('UPDATE_NICKNAME', params.nickName)
+      commit('UPDATE_NICKNAME', params)
     }
   },
   setUserName({commit, state}, params) {
-    commit('UPDATE_USERNAME', params.userName)
+    commit('UPDATE_USERNAME', params)
   }
 }
 

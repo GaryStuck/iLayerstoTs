@@ -2,33 +2,38 @@ import Vue from 'vue'
 import Vuex, { StoreOptions } from 'vuex'
 import { RootState } from './rootTypes'
 import { user } from './module/user'
+import Cookies from 'js-cookie'
+// @ts-ignore
+import VuexPersistence from 'vuex-persist'
 
 Vue.use(Vuex)
-
+const vuexStorage = new VuexPersistence({
+  key: 'CUED',
+  storage: window.localStorage,
+  modules: ['user']
+})
+// const vuexCookie = new VuexPersistence({
+//   key: 'CURD',
+//   storage: Cookies,
+//   modules: ['user']
+// })
 const store: StoreOptions<RootState> = {
   state: {
-    userName: 'jack',
+    appVersion: '1.0.0',
   },
   modules: {
     user
   },
   mutations: {
-    updateUserName(state, payload) {
-      state.userName = state.userName + payload
+    UPDATE_APP_VERSION(state, payload) {
+      state.appVersion = payload
     },
   },
   actions: {
-    setUserName({commit, state}) {
-      return new Promise((resolve, reject) => {
-        if (state.userName === '') {
-          commit('updateUserName', 'admin')
-          resolve()
-        } else {
-          reject()
-        }
-      })
+    setAppVersion({commit, state}, params) {
+      commit('UPDATE_APP_VERSION', params)
     },
-  },
+  }
 }
 
 export default new Vuex.Store<RootState>(store)
