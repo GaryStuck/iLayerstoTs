@@ -51,16 +51,17 @@ module.exports = {
     }
   },
   css: {
-    /* less 变量覆盖，用于自定义 ant design 主题 */
     loaderOptions: {
       less: {
-        // modifyVars: {
-        //   'primary-color': '#1DA57A',
-        //   'link-color': '#1DA57A',
-        //   'border-radius-base': '2px',
-        // },
-        javascriptEnabled: true
-      }
-    }
-  }
+        lessOptions: {
+          modifyVars: {
+            'primary-color': '#00ffff',
+            'link-color': '#1DA57A',
+            'border-radius-base': '2px',
+          },
+          javascriptEnabled: true,
+        },
+      },
+    },
+  },
 }

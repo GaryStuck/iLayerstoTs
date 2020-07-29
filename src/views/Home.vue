@@ -7,6 +7,23 @@
         <div>{{appVersion}}</div>
         <div>username: {{userName}}</div>
         <div>nickName:{{nickName}}</div>
+        <a-steps :current="1">
+            <a-step>
+                <!-- <span slot="title">Finished</span> -->
+                <template slot="title">
+                    Finished
+                </template>
+                <span slot="description">This is a description.</span>
+            </a-step>
+            <a-step title="In Progress" sub-title="Left 00:00:08" description="This is a description."/>
+            <a-step title="Waiting" description="This is a description."/>
+        </a-steps>
+        <a-switch default-checked/>
+        <br/>
+        <a-switch size="small" default-checked/>
+        <div style="width: 60%;margin: 0 auto">
+            <y-table></y-table>
+        </div>
     </div>
 </template>
 
@@ -15,10 +32,11 @@
   import HelloWorld from '@/components/HelloWorld.vue'
   import Vue from 'vue'
   import { mapState, mapActions } from 'vuex'
-
+  import YTable from './table'
   export default Vue.extend({
     components: {
-      HelloWorld
+      HelloWorld,
+      YTable
     },
     data () {
       return {
