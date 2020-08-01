@@ -20,6 +20,7 @@ const vuexStorage = new VuexPersistence({
 const store: StoreOptions<RootState> = {
   state: {
     appVersion: '1.0.0',
+    loading: false
   },
   modules: {
     user
@@ -28,11 +29,17 @@ const store: StoreOptions<RootState> = {
     UPDATE_APP_VERSION(state, payload) {
       state.appVersion = payload
     },
+    UPDATE_LOADING(state, payload) {
+      state.loading = payload
+    },
   },
   actions: {
     setAppVersion({commit, state}, params) {
       commit('UPDATE_APP_VERSION', params)
     },
+    setLoading({commit, state}, params) {
+      commit('UPDATE_LOADING', params)
+    }
   }
 }
 

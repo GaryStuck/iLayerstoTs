@@ -15,12 +15,12 @@
                 </template>
                 <span slot="description">This is a description.</span>
             </a-step>
-            <a-step title="In Progress" sub-title="Left 00:00:08" description="This is a description."/>
-            <a-step title="Waiting" description="This is a description."/>
+            <a-step title="In Progress" sub-title="Left 00:00:08" description="This is a description." />
+            <a-step title="Waiting" description="This is a description." />
         </a-steps>
-        <a-switch default-checked/>
-        <br/>
-        <a-switch size="small" default-checked/>
+        <a-switch default-checked />
+        <br />
+        <a-switch size="small" default-checked />
         <div style="width: 60%;margin: 0 auto">
             <y-table></y-table>
         </div>
@@ -32,7 +32,10 @@
   import HelloWorld from '@/components/HelloWorld.vue'
   import Vue from 'vue'
   import { mapState, mapActions } from 'vuex'
-  import YTable from './table'
+    import YTable from './table'
+  import { login } from '@/api/user'
+
+
   export default Vue.extend({
     components: {
       HelloWorld,
@@ -58,6 +61,7 @@
     },
     mounted () {
       this.stateName()
+      this.log()
     },
     computed: {
       ...mapState('user', {
@@ -85,6 +89,14 @@
         console.info(this.$store)
         this.$store.dispatch('setAppVersion', '1.20')
         this.$store.dispatch('user/setUserName', 'JACKSON')
+      },
+      async log () {
+      /*  // this.$store.dispatch('setLoading', true)
+        let data = await login({ user_name: 'Lison', password: 123 })
+        if (!data) {
+          // this.$store.dispatch('setLoading', false)
+        }
+        console.log(data)*/
       }
     }
   })

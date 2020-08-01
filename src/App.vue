@@ -6,12 +6,20 @@
       <router-link :to="{name:'Home'}">Home</router-link> |
       <router-link :to="{name: 'About'}">About</router-link>
     </div>
-    <router-view/>
+    <a-spin :spinning="this.$store.state.loading" tip="加载中...">
+      <router-view />
+    </a-spin>
     <router-view name="email"/>
     <router-view name="tel"/>
   </div>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+  export default Vue.extend({
+    name: 'App'
+  })
+</script>
 <style>
   @import "./assets/styles/index.css";
   #app {

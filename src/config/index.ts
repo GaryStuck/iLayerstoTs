@@ -1,12 +1,12 @@
 /** 
  * 线上环境
  */
-export const ONLINEHOST: string = 'https://xxx.com'
+export const ONLINEHOST: string = 'localhost:3000'
 
 /** 
  * 测试环境
  */
-export const QAHOST: string = 'http://xxx.com'
+export const QAHOST: string = 'localhost:3000'
 
 /** 
  * 线上mock
