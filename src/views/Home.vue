@@ -1,29 +1,31 @@
 <template>
     <div class="home">
+        welcome 你好
         <HelloWorld msg="Welcome to Your Vue.js App"/>
-        <a-button type="primary">
-            Primary
-        </a-button>
-        <div>{{appVersion}}</div>
-        <div>username: {{userName}}</div>
-        <div>nickName:{{nickName}}</div>
-        <a-steps :current="1">
-            <a-step>
-                <!-- <span slot="title">Finished</span> -->
-                <template slot="title">
-                    Finished
-                </template>
-                <span slot="description">This is a description.</span>
-            </a-step>
-            <a-step title="In Progress" sub-title="Left 00:00:08" description="This is a description." />
-            <a-step title="Waiting" description="This is a description." />
-        </a-steps>
-        <a-switch default-checked />
-        <br />
-        <a-switch size="small" default-checked />
-        <div style="width: 60%;margin: 0 auto">
-            <y-table></y-table>
-        </div>
+      <count-num></count-num>
+<!--        <a-button type="primary">-->
+<!--            Primary-->
+<!--        </a-button>-->
+<!--        <div>{{appVersion}}</div>-->
+<!--        <div>username: {{userName}}</div>-->
+<!--        <div>nickName:{{nickName}}</div>-->
+<!--        <a-steps :current="1">-->
+<!--            <a-step>-->
+<!--                &lt;!&ndash; <span slot="title">Finished</span> &ndash;&gt;-->
+<!--                <template slot="title">-->
+<!--                    Finished-->
+<!--                </template>-->
+<!--                <span slot="description">This is a description.</span>-->
+<!--            </a-step>-->
+<!--            <a-step title="In Progress" sub-title="Left 00:00:08" description="This is a description."/>-->
+<!--            <a-step title="Waiting" description="This is a description."/>-->
+<!--        </a-steps>-->
+<!--        <a-switch default-checked/>-->
+<!--        <br/>-->
+<!--        <a-switch size="small" default-checked/>-->
+<!--        <div style="width: 60%;margin: 0 auto">-->
+<!--            <y-table></y-table>-->
+<!--        </div>-->
     </div>
 </template>
 
@@ -32,14 +34,15 @@
   import HelloWorld from '@/components/HelloWorld.vue'
   import Vue from 'vue'
   import { mapState, mapActions } from 'vuex'
-    import YTable from './table'
+  import YTable from './table'
   import { login } from '@/api/user'
-
+  import  CountNum  from '@/components/count-num'
 
   export default Vue.extend({
     components: {
       HelloWorld,
-      YTable
+      YTable,
+      CountNum
     },
     data () {
       return {
@@ -62,6 +65,7 @@
     mounted () {
       this.stateName()
       this.log()
+      this.$message.info('This is a normal message');
     },
     computed: {
       ...mapState('user', {
@@ -91,13 +95,21 @@
         this.$store.dispatch('user/setUserName', 'JACKSON')
       },
       async log () {
-      /*  // this.$store.dispatch('setLoading', true)
-        let data = await login({ user_name: 'Lison', password: 123 })
-        if (!data) {
-          // this.$store.dispatch('setLoading', false)
-        }
-        console.log(data)*/
+        /*  // this.$store.dispatch('setLoading', true)
+          let data = await login({ user_name: 'Lison', password: 123 })
+          if (!data) {
+            // this.$store.dispatch('setLoading', false)
+          }
+          console.log(data)*/
       }
     }
   })
 </script>
+
+<style lang="scss" scoped>
+    @import "../assets/scss/global/mixin";
+    .home {
+        @include title;
+    }
+
+</style>

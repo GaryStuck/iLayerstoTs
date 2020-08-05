@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <div>{{ msg }}</div>
   </div>
 </template>
 
@@ -16,9 +16,12 @@ export default Vue.extend({
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style lang="scss" scoped>
+  @import "../assets/scss/global/mixin";
+
+  div {
+  margin:px2rem(40) 0 0;
+    @include title()
 }
 ul {
   list-style-type: none;
@@ -26,7 +29,7 @@ ul {
 }
 li {
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 px2rem(20);
 }
 a {
   color: #42b983;

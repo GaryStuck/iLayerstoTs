@@ -1,5 +1,4 @@
-
-$ratio: 375 / 10;
+$ratio: 750 / 10;
 
 @function px2rem($px) {
   @return $px / $ratio + rem;
@@ -30,4 +29,45 @@ $ratio: 375 / 10;
     bottom: -10px
   }
 }
+$font-size-small-s : px2rem(10);
+$font-size-small : px2rem(12);
+$font-size-medium : px2rem(14);
+$font-size-medium-x : px2rem(16);
+$font-size-large : px2rem(18);
+$font-size-large-x : px2rem(36);
+@mixin title() {
+  font: {
+    size:$font-size-large-x;
+    style: normal;
+  }
+  line-height: 1.5;
+  color: #1C1C1C;
+}
 
+@mixin desc() {
+  font: {
+    size:$font-size-medium;
+    style: normal;
+  }
+  line-height: 1.5;
+  color: #c2c2c2;
+}
+@mixin text() {
+  font-size: $font-size-medium;
+  line-height: 1.5;
+  font-style: normal;
+  color: #c2c2c2;
+}
+@mixin propmt() {
+  font-size: $font-size-medium;
+  line-height: 1.5;
+  font-style: normal;
+  color: #717171;
+}
+@mixin link() {
+  font-size: $font-size-medium;
+  line-height: 1.5;
+  font-style: normal;
+  font-weight: bold;
+  color: #2c2c2c;
+}

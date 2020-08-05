@@ -56,7 +56,7 @@ module.exports = {
         lessOptions: {
           javascriptEnabled: true,
         },
-      },
+      }
     },
   },
 }

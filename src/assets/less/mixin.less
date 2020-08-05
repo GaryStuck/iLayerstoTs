@@ -1,0 +1,23 @@
+@ratio: 375/10;
+.rem(@name,@px) {
+    @{name}: unit(@px / @ratio, rem);
+}
+
+.root[time="1565257240441"]{
+  .listview{
+    padding-left: 0.24rem;
+    .title{
+      font-size: 0.3rem;
+    }
+    >div{
+      height: 1.08rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .rem(border-bottom, 2);
+      border-style: solid;
+      border-color: #eee;
+    }
+  }
+
+}

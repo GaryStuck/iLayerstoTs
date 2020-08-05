@@ -1,4 +1,5 @@
-/** 
+import './antd'
+/**
  * 线上环境
  */
 export const ONLINEHOST: string = 'localhost:3000'

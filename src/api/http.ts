@@ -6,7 +6,7 @@ const ERR_CODE: number = -1;
 const ERR_OK: number = 200;
 
 class HttpRequest {
-  public quene = new Queue();
+  public queue = new Queue();
 
   constructor(public baseUrl: string = BASE_URL) {
     this.baseUrl = baseUrl;
@@ -25,7 +25,10 @@ class HttpRequest {
   private interceptors(instance: AxiosInstance, url?: string) {
     // 在这里添加请求和响应拦截
     instance.interceptors.request.use((config: AxiosRequestConfig) => {
-          this.quene.enQueue(url)
+          if (this.queue.isEmpty()) {
+            // this.show()
+          }
+          this.queue.enQueue(url)
           // 接口请求的所有配置，都在这个config对象中，他的类型是AxiosRequestConfig
           // 如果你要修改接口请求配置，需要修改 axios.defaults 上的字段值
           axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
@@ -37,7 +40,7 @@ class HttpRequest {
         })
     instance.interceptors.response.use((res: AxiosResponse) => {
           console.log(res);
-          this.quene.deQueue()
+          this.queue.deQueue()
           const {data} = res // res的类型是AxiosResponse<any>，包含六个字段，其中data是服务端返回的数据
           const {code, msg} = data // 通常服务端会将响应状态码、提示信息、数据等放到返回的数据中
           if (code !== ERR_CODE) {
