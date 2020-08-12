@@ -52,6 +52,10 @@ export default [
     path: '/main',
     redirect: () => '/'
   },
+   {
+    path: '/pane',
+    component: () => import('@/components/split-pane/index.vue')
+  },
   {
     path: '*',
     component: () => import('@/views/error/404.vue')
