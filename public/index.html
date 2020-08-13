@@ -6,12 +6,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+.cssload-loading {
+	text-align:center;
+	margin: 17px auto;
+	color: rgb(52,235,235);
+	font-size: 1em;
+	font-family: "Montserrat", sans-serif;
+	animation: cssload-breathe 23.8s ease infinite;
+		-o-animation: cssload-breathe 23.8s ease infinite;
+		-ms-animation: cssload-breathe 23.8s ease infinite;
+		-webkit-animation: cssload-breathe 23.8s ease infinite;
+		-moz-animation: cssload-breathe 23.8s ease infinite;
+}
+
+@keyframes cssload-breathe {
+	0% {
+		letter-spacing: 0;
+		text-shadow: 0 0 0px white;
+	}
+	30% {
+		color: transparent;
+	}
+	50% {
+		letter-spacing: 35px;
+		font-size: 0;
+		text-shadow: 0 0 2px white;
+	}
+	60% {
+		color: transparent;
+	}
+	100% {
+		letter-spacing: 0;
+		text-shadow: 0 0 0px white;
+	}
+}
+
+@-o-keyframes cssload-breathe {
+	0% {
+		letter-spacing: 0;
+		text-shadow: 0 0 0px white;
+	}
+	30% {
+		color: transparent;
+	}
+	50% {
+		letter-spacing: 35px;
+		font-size: 0;
+		text-shadow: 0 0 2px white;
+	}
+	60% {
+		color: transparent;
+	}
+	100% {
+		letter-spacing: 0;
+		text-shadow: 0 0 0px white;
+	}
+}
+
+@-ms-keyframes cssload-breathe {
+	0% {
+		letter-spacing: 0;
+		text-shadow: 0 0 0px white;
+	}
+	30% {
+		color: transparent;
+	}
+	50% {
+		letter-spacing: 35px;
+		font-size: 0;
+		text-shadow: 0 0 2px white;
+	}
+	60% {
+		color: transparent;
+	}
+	100% {
+		letter-spacing: 0;
+		text-shadow: 0 0 0px white;
+	}
+}
+
+@-webkit-keyframes cssload-breathe {
+	0% {
+		letter-spacing: 0;
+		text-shadow: 0 0 0px white;
+	}
+	30% {
+		color: transparent;
+	}
+	50% {
+		letter-spacing: 35px;
+		font-size: 0;
+		text-shadow: 0 0 2px white;
+	}
+	60% {
+		color: transparent;
+	}
+	100% {
+		letter-spacing: 0;
+		text-shadow: 0 0 0px white;
+	}
+}
+
+@-moz-keyframes cssload-breathe {
+	0% {
+		letter-spacing: 0;
+		text-shadow: 0 0 0px white;
+	}
+	30% {
+		color: transparent;
+	}
+	50% {
+		letter-spacing: 35px;
+		font-size: 0;
+		text-shadow: 0 0 2px white;
+	}
+	60% {
+		color: transparent;
+	}
+	100% {
+		letter-spacing: 0;
+		text-shadow: 0 0 0px white;
+	}
+}
+    </style>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+      <div class="cssload-loading">CWR-Operation</div>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>

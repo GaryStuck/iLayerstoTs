@@ -5,8 +5,7 @@ import store from './store'
 import 'nprogress/nprogress.css'
 import './assets/styles/index.css'
 import './assets/scss/global/index.scss'
-import 'ant-design-vue/dist/antd.less';
-import './assets/less/ant_style.less'
+import './assets/less/mixin.less'
 import '@/config'
 Vue.config.productionTip = false
 

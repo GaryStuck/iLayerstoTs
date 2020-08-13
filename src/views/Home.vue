@@ -4,28 +4,33 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
     <!-- <count-num></count-num> -->
     <split-pane></split-pane>
+    <f-loading />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
+import FLoading from "@/components/f-loading";
 import Vue from "vue";
 import { mapState, mapActions } from "vuex";
 import YTable from "./table";
 import { login } from "@/api/user";
 import CountNum from "@/components/count-num";
-import SplitPane from '@/components/split-pane'
+import SplitPane from "@/components/split-pane";
 export default Vue.extend({
   components: {
     HelloWorld,
     YTable,
     CountNum,
-    SplitPane
+    SplitPane,
+    FLoading,
   },
   data() {
     return {
       userNames: "",
+      visible: false,
+      placement: "left",
     };
   },
   beforeRouteEnter(to, from, next) {
@@ -71,6 +76,7 @@ export default Vue.extend({
       this.$store.dispatch("setAppVersion", "1.20");
       this.$store.dispatch("user/setUserName", "JACKSON");
     },
+    
     async log() {
       /*  // this.$store.dispatch('setLoading', true)
           let data = await login({ user_name: 'Lison', password: 123 })

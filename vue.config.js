@@ -1,6 +1,5 @@
 const path = require('path')
 const COMMON_URL = process.env.NODE_ENV === 'production' ? '/ilayer' : './'
-
 const resolve = dir => {
   return path.join(__dirname, dir)
 }
@@ -54,6 +53,10 @@ module.exports = {
     loaderOptions: {
       less: {
         lessOptions: {
+          // modifyVars: getThemeVariables({
+          //   dark: true,
+          //   compact: true,
+          // }),
           javascriptEnabled: true,
         },
       }
