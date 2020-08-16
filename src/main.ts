@@ -7,6 +7,7 @@ import './assets/styles/index.css'
 import './assets/scss/global/index.scss'
 import './assets/less/mixin.less'
 import '@/config'
+import '@/components/f-loading/f-loading'
 Vue.config.productionTip = false
 
 new Vue({

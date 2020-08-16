@@ -4,7 +4,7 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
     <!-- <count-num></count-num> -->
     <split-pane></split-pane>
-<!--    <f-loading />-->
+    <f-loading />
   </div>
 </template>
 
@@ -76,7 +76,7 @@ export default Vue.extend({
       this.$store.dispatch("setAppVersion", "1.20");
       this.$store.dispatch("user/setUserName", "JACKSON");
     },
-    
+
     async log() {
       /*  // this.$store.dispatch('setLoading', true)
           let data = await login({ user_name: 'Lison', password: 123 })
