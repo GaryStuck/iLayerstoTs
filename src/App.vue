@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <i class="material-icons">face</i>
+       <i class="material-icons">face</i>
     <i class="material-icons">home</i>
     <a-drawer
       title="Basic Drawer"
@@ -14,6 +14,9 @@
       <p>Some contents...</p>
     </a-drawer>
     <div id="nav">
+        <a-button type="primary" @click="showDrawer">
+      Open
+    </a-button>
       <router-link :to="{name:'Home'}">Home</router-link>|
       <router-link :to="{name: 'About'}">About</router-link>
     </div>
@@ -22,6 +25,8 @@
     </a-spin>
     <router-view name="email" />
     <router-view name="tel" />
+   
+
   </div>
 </template>
 
@@ -48,7 +53,10 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "App",
-  mounted() {},
+  mounted() {
+    console.log(this.$loading)
+    this.$loading.spinning = true
+  },
   data() {
     return {
       visible: false,

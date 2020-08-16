@@ -1,4 +1,5 @@
 import './antd'
+import './components'
 /**
  * 线上环境
  */

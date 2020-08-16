@@ -4,7 +4,7 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
     <!-- <count-num></count-num> -->
     <split-pane></split-pane>
-    <f-loading />
+<!--    <f-loading />-->
   </div>
 </template>
 
