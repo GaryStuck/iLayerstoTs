@@ -20,7 +20,8 @@ const vuexStorage = new VuexPersistence({
 const store: StoreOptions<RootState> = {
   state: {
     appVersion: '1.0.0',
-    loading: false
+    loading: false,
+    localLang:'zh-cn'
   },
   modules: {
     user
@@ -32,6 +33,9 @@ const store: StoreOptions<RootState> = {
     UPDATE_LOADING(state, payload) {
       state.loading = payload
     },
+    UPDATE_LOCAL_LANG(state, payload) {
+      state.localLang = payload
+    },
   },
   actions: {
     setAppVersion({commit, state}, params) {
@@ -39,6 +43,9 @@ const store: StoreOptions<RootState> = {
     },
     setLoading({commit, state}, params) {
       commit('UPDATE_LOADING', params)
+    },
+    setLocalLang({commit, state}, params) {
+      commit('UPDATE_LOCAL_LANG', params)
     }
   }
 }

@@ -5,6 +5,7 @@
     <!-- <count-num></count-num> -->
     <split-pane></split-pane>
     <f-loading />
+    <button @click="handleClick">button</button>
   </div>
 </template>
 
@@ -76,7 +77,9 @@ export default Vue.extend({
       this.$store.dispatch("setAppVersion", "1.20");
       this.$store.dispatch("user/setUserName", "JACKSON");
     },
-
+    handleClick() {
+      this.$notify({content: 'fdsafdsafd'})
+    },
     async log() {
       /*  // this.$store.dispatch('setLoading', true)
           let data = await login({ user_name: 'Lison', password: 123 })

@@ -1,105 +1,47 @@
 <template>
-  <div id="app">
-       <i class="material-icons">face</i>
-    <i class="material-icons">home</i>
-    <a-drawer
-      title="Basic Drawer"
-      :placement="placement"
-      :visible="visible"
-      @close="onClose"
-      :closable="true"
-    >
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-    </a-drawer>
-    <div id="nav">
-        <a-button type="primary" @click="showDrawer">
-      Open
-    </a-button>
-      <router-link :to="{name:'Home'}">Home</router-link>|
-      <router-link :to="{name: 'About'}">About</router-link>
-    </div>
-    <a-spin :spinning="this.$store.state.loading" tip="加载中...">
-      <router-view />
-    </a-spin>
-    <router-view name="email" />
-    <router-view name="tel" />
-   
-
+  <div>
+    <a-config-provider :locale="locale">
+      <div id="app">
+        <router-view></router-view>
+      </div>
+    </a-config-provider>
   </div>
 </template>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  let fontSize = window.innerWidth / 10;
-  fontSize = fontSize > 50 ? 100 : fontSize;
-  const html = document.querySelector("html");
-  html.style.fontSize = fontSize + "px";
-});
-if (window.addEventListener) {
-  window.addEventListener(
-    "resize",
-    function () {
-      let fontSize = window.innerWidth / 10;
-      fontSize = fontSize > 50 ? 100 : fontSize;
-      const html = document.querySelector("html");
-      html.style.fontSize = fontSize + "px";
-    },
-    false
-  );
-}
-import Vue from "vue";
+  import Vue from 'vue'
+  import { mapActions, mapState } from 'vuex'
+  import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
+  import moment from 'moment'
+  import 'moment/locale/zh-cn'
+  const EN = 'en-us'
+  const ZH = 'zh-cn'
+  moment.locale('zh-cn')
 
-export default Vue.extend({
-  name: "App",
-  mounted() {
-    console.log(this.$loading)
-    this.$loading.spinning = true
-  },
-  data() {
-    return {
-      visible: false,
-      placement: "left",
-    };
-  },
-  methods: {
-    showDrawer() {
-      this.visible = true;
+  export default Vue.extend({
+    name: 'App',
+    data () {
+      return {
+        locale: zhCN,
+        moment,
+      }
     },
-    onClose() {
-      this.visible = false;
+    computed: {
+      ...mapState({
+        localLang: (state) => state.localLang
+      }),
+      ...mapActions(['setLocalLang']),
     },
-    onChange(e) {
-      this.placement = e.target.value;
-    },
-  }
-});
+    mounted () {
+      if (this.localLang === EN) {
+        moment.locale(EN)
+        this.$i18n.locale = EN
+        this.locale = null
+      } else {
+        moment.locale(ZH)
+        this.$i18n.locale = ZH
+        this.locale = zhCN
+      }
+    }
+  })
 </script>
-<style lang="scss">
-@import "./assets/styles/index.css";
-@import "@/assets/scss/global/mixin";
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  font-size: px2rem(14);
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-  font-size: px2rem(14);
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>

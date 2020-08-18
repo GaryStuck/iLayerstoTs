@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 const routes: RouteConfig[] = routers
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   routes,
 })
 const HAS_LOGINED: boolean = true

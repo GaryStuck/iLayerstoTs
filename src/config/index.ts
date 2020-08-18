@@ -1,21 +1,25 @@
+import Vue from "vue";
+
+
 import './antd'
 import './components'
+
 /**
  * 线上环境
  */
 export const ONLINEHOST: string = 'localhost:3000'
 
-/** 
+/**
  * 测试环境
  */
 export const QAHOST: string = 'localhost:3000'
 
-/** 
+/**
  * 线上mock
  */
 export const MOCKHOST: string = 'http://xxx.com'
 
-/** 
+/**
  * 是否mock
  */
 export const ISMOCK: boolean = true

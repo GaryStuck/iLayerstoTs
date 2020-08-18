@@ -11,6 +11,7 @@ export const login = (data: LoginReqArguInterface): AxiosPromise<ResponseData> =
   return axios.request({
     url: '/login',
     data,
-    method: 'POST'
+    method: 'POST',
+    headers: 'x-www-config-ooo'
   })
 }

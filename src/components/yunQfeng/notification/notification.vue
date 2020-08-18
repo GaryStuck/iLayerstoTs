@@ -75,7 +75,12 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "mixin";
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
   .notification {
     display: flex;
     color: rgba(255, 255, 255, 1);
@@ -85,7 +90,6 @@
     min-width: 280px;
     box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.2);
     flex-wrap: wrap;
-    transition: all 0.3s;
     background-color: #303030;
 
     &::after {

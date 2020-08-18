@@ -1,10 +1,13 @@
-import Home from '../views/Home.vue';
 
 export default [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    redirect: () => '/layer'
+  },
+  {
+    path: '/layer',
+    name: 'layer',
+    component: () => import('@/views/yunQfeng/index.vue'),
   },
   {
     path: '/about',
