@@ -1,5 +1,5 @@
 const path = require('path')
-const COMMON_URL = process.env.NODE_ENV === 'production' ? '/ilayer' : './'
+const COMMON_URL = process.env.NODE_ENV === 'production' ? '/ilaire' : './'
 const resolve = dir => {
   return path.join(__dirname, dir)
 }

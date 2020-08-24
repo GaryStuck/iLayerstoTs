@@ -1,22 +1,14 @@
 <template>
-    <div>
-        <div style="margin-bottom: 16px">
-            <a-button type="primary" :disabled="!hasSelected" :loading="loading" @click="start">
-                Reload
-            </a-button>
-            <span style="margin-left: 8px">
-        <template v-if="hasSelected">
-          {{ `Selected ${selectedRowKeys.length} items` }}
-        </template>
-            </span>
-        </div>
-        <a-table
-                :row-selection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
-                :columns="columns"
-                :data-source="data"
-                size="small"
-        />
-    </div>
+  <div>
+    <a-table :columns="columns" :pagination="pagination"
+             size="small"
+             @onSelectChange="onSelectChange"
+             :data-source="data">
+      <template slot="action" slot-scope="text, record">
+        <a @click="handleEdit(text,record)">{{record}}编辑</a>
+      </template>
+    </a-table>
+  </div>
 </template>
 <script>
   const columns = [
@@ -26,12 +18,20 @@
     },
     {
       title: 'Age',
+      key: 'Age',
       dataIndex: 'age',
     },
     {
       title: 'Address',
+      key: 'Address',
       dataIndex: 'address',
     },
+    {
+      title: '操作',
+      key: 'action',
+      dataIndex: 'action',
+      scopedSlots: { customRender: 'action' },    //这一行自定义渲染这一列
+    }
   ]
 
   const data = []
@@ -43,36 +43,34 @@
       address: `London, Park Lane no. ${i}`,
     })
   }
-  import Vue from 'vue'
 
-  export default Vue.extend({
-    name: 'y-table',
+  export default {
     data () {
       return {
         data,
         columns,
+        pagination: {
+          size: 'small',
+          pageSizeOptions: ['10', '20', '30', '40', '50'],
+          current: 1,
+          pageSize: 10,
+          total: 46,
+          showSizeChanger: true,
+          showQuickJumper: true
+        },
         selectedRowKeys: [], // Check here to configure the default column
-        loading: false,
       }
     },
-    computed: {
-      hasSelected () {
-        return this.selectedRowKeys.length > 0
-      },
-    },
+    components: {},
+    computed: {},
     methods: {
-      start () {
-        this.loading = true
-        // ajax request after empty completing
-        setTimeout(() => {
-          this.loading = false
-          this.selectedRowKeys = []
-        }, 1000)
+      handleEdit (a, b) {
+        console.log(a, b)
       },
       onSelectChange (selectedRowKeys) {
         console.log('selectedRowKeys changed: ', selectedRowKeys)
         this.selectedRowKeys = selectedRowKeys
       },
     },
-  })
+  }
 </script>

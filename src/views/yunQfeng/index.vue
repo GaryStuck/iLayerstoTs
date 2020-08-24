@@ -1,14 +1,17 @@
 <template>
-  <div>
+  <div class="web-font">
     {{$t('title.code')}}
-    <a-tree-select
-        v-model="value"
-        style="width: 100%"
-        :tree-data="treeData"
-        tree-checkable
-        :show-checked-strategy="SHOW_PARENT"
-        search-placeholder="Please select"
-    />
+    <div style="width: 150px" class="web-font">
+      <a-tree-select
+          class="web-font"
+          v-model="value"
+          style="width: 100%"
+          :tree-data="treeData"
+          tree-checkable
+          :show-checked-strategy="SHOW_PARENT"
+          search-placeholder="Please select"
+      />
+    </div>
     <a-pagination
         show-size-changer
         :default-current="3"

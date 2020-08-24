@@ -23,6 +23,11 @@ export default [
     component: () => import('@/views/store.vue'),
   },
   {
+    path: '/table',
+    name: 'table',
+    component: () => import('@/views/table.vue'),
+  },
+  {
     path: '/argu/:name',
     name: 'argu',
     component: () => import('@/views/argu.vue'),
